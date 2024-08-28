@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  asmfuzz:
+    container_name: asmfuzz-docker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/root/asmfuzz
+    tty: true
+    restart: always
+    ports:
+      - 10349:10349
+      - 8888:8888
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: "nvidia"
+              count: "all"
+              capabilities: ["gpu"]
+  mysql:
+    restart: always
+    image: mysql:8.0
+    container_name: asmfuzz-mysql
+    volumes:
+      - ./env/init:/docker-entrypoint-initdb.d
+    environment:
+        - MYSQL_ROOT_PASSWORD=123456
+        - MYSQL_DATABASE=asmfuzz
+    ports:
+        - "10348:3306"
