@@ -1,0 +1,6 @@
+harness_class :
+  listTxt : "/root/asmfuzz/workline/data/list.txt"
+  code_files : "/root/asmfuzz/fuzz/shannon_v1/"
+  code_files_cov : "root/asmfuzz/fuzz/shannon_v1/"
+  addExportsPath : "/root/asmfuzz/workline/data/addopens.txt"
+javac_classpath : "/root/jvm/openjdk17/jdk-17.0.5+8/build/linux-x86_64-server-release/images/jdk/lib:/root/jvm/openjdk11/jdk-11.0.14-ga/build/linux-x86_64-normal-server-release/images/jdk/lib:/root/jvm/openj9-jdk11/openj9-openjdk-jdk11/build/linux-x86_64-normal-server-release/images/images/lib:/root/jvm/openj9-jdk17/openj9-openjdk-jdk17/build/linux-x86_64-server-release/images/jdk/lib:/root/jvm/zulu-jdk17/zulu17.38.21-ca-jdk17.0.5-linux_x64/lib:/root/jvm/zulu-jdk11/zulu11.60.19-ca-jdk11.0.17-linux_x64/lib:/root/jvm/graal-jdk17/graalvm-ce-java17-22.3.0/lib:/root/jvm/graal-jdk11/graalvm-ce-java11-22.3.0/lib:"
