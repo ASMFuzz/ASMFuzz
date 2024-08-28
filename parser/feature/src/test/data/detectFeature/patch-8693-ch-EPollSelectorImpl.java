@@ -1,0 +1,9 @@
+@@ -125,7 +125,7 @@ protected int doSelect(Consumer<SelectionKey> action, long timeout)
+                 if (numEntries == IOStatus.INTERRUPTED && timedPoll) {
+                     // timed poll interrupted so need to adjust timeout
+                     long adjust = System.nanoTime() - startTime;
+-                    to =- (int) TimeUnit.NANOSECONDS.toMillis(adjust);
++                    to -= (int) TimeUnit.NANOSECONDS.toMillis(adjust);
+                     if (to <= 0) {
+                         // timeout expired so no retry
+                         numEntries = 0;

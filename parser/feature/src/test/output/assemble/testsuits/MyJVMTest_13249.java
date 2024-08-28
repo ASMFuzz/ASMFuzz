@@ -1,0 +1,24 @@
+public class MyJVMTest_13249 {
+
+    static Object data = 0;
+
+    static int n = 0;
+
+    static int expected = 5;
+
+    String getType(Object data) {
+        return (data instanceof CharSequence) ? "CharSequence" : "char[]";
+    }
+
+    int checkCodePointCount(Object data, int n, int expected) {
+        String type = getType(data);
+        if (n != expected) {
+            throw new RuntimeException("codePointCount(" + type + "...) returned " + n + ", expected " + expected);
+        }
+        return n;
+    }
+
+    public static void main(String[] args) throws Exception {
+        new MyJVMTest_13249().checkCodePointCount(data, n, expected);
+    }
+}

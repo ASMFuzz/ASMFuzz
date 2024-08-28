@@ -1,0 +1,18 @@
+@@ -1,5 +1,5 @@
+ //
+-// Copyright (c) 2003, 2020, Oracle and/or its affiliates. All rights reserved.
++// Copyright (c) 2003, 2022, Oracle and/or its affiliates. All rights reserved.
+ // Copyright (c) 2014, 2020, Red Hat Inc. All rights reserved.
+ // Copyright (c) 2020, 2022, Huawei Technologies Co., Ltd. All rights reserved.
+ // DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+@@ -2044,6 +2044,10 @@ bool Matcher::pd_clone_address_expressions(AddPNode* m, Matcher::MStack& mstack,
+   return clone_base_plus_offset_address(m, mstack, address_visited);
+ }
+ 
++bool Parse::do_one_bytecode_targeted() {
++  return false;
++}
++
+ %}
+ 
+ 

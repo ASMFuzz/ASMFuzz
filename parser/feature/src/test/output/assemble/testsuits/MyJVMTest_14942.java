@@ -1,0 +1,10 @@
+public class MyJVMTest_14942 {
+
+    String s_string_method() {
+        return "return";
+    }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(new MyJVMTest_14942().s_string_method());
+    }
+}

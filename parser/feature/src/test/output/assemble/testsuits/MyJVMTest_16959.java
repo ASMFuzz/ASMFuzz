@@ -1,0 +1,17 @@
+public class MyJVMTest_16959 {
+
+    static int ch = 6;
+
+    boolean isSpace(int ch) {
+        return ((((1 << Character.SPACE_SEPARATOR) | (1 << Character.LINE_SEPARATOR) | (1 << Character.PARAGRAPH_SEPARATOR)) >> Character.getType(ch)) & 1) != 0 || (ch >= 0x9 && ch <= 0xd) || (ch == 0x85);
+    }
+
+    boolean isBlank(int ch) {
+        int type = Character.getType(ch);
+        return isSpace(ch) && ch != 0xa & ch != 0xb && ch != 0xc && ch != 0xd && ch != 0x85 && type != Character.LINE_SEPARATOR && type != Character.PARAGRAPH_SEPARATOR;
+    }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(new MyJVMTest_16959().isBlank(ch));
+    }
+}

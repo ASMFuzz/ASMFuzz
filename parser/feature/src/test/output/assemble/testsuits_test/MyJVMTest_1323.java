@@ -1,0 +1,16 @@
+public class MyJVMTest_1323 {
+
+    static Float value = Float.NEGATIVE_INFINITY;
+
+    boolean informationLossFloatToShort(Float value) {
+        if (value.isInfinite())
+            return true;
+        if (value.isNaN())
+            return true;
+        return (value.floatValue() > Short.MAX_VALUE) || (value.floatValue() < Short.MIN_VALUE);
+    }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(new MyJVMTest_1323().informationLossFloatToShort(value));
+    }
+}

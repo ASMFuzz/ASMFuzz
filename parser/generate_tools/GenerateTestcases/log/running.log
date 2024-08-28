@@ -1,0 +1,11 @@
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:com.amazonaws.internal.SdkInternalList<InstanceDefinition>
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:Collection<String>
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:Collection<Tag>
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:Exchange
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:JobConf
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:AuthzGroupService
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:RoleRepository
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:UserDao
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:Site
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:BlockingQueue<JobID>
+INFO main com.jvmfuzzing.generator.UnprimitiveGenerator - cannot generate:BlockingQueue<JobID>

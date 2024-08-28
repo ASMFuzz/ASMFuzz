@@ -1,0 +1,49 @@
+public class MyJVMTest_14896 {
+
+    static String[] strArr1 = { "![}qu95NQu", "kFGdg55~>Z", "{:7p<<O/gL", "06rbKEI:96", "6x:PRJsoXg", ")/!&;DU+=7", "6QOrB*P!sU", "<z.zl(-t@n", "*O[e6lJp6u", "Wm;-rmcpw5" };
+
+    void vMeth1(int i1) {
+        int i3 = 4;
+        long[] lArr = new long[N], lArr1 = new long[N];
+        boolean b = (Integer.reverseBytes(i1 << 5) < (instanceCount++));
+        for (int i2 = 1; i2 < 146; i2++) {
+            iFld >>= (++i3);
+        }
+        if (b) {
+            for (int i4 = 4; i4 < 218; ++i4) {
+                instanceCount = iArrFld[i4 - 1];
+                int i10 = 1;
+                while (++i10 < 8) {
+                    lArr1[i4] += 61384L;
+                }
+                lArr[i4 + 1] = i4;
+                i3 += sFld;
+            }
+        }
+    }
+
+    static int N = 400;
+
+    static long instanceCount = 727275458L;
+
+    static int iFld = -10;
+
+    static short sFld = -2966;
+
+    static float fFld = 1.682F;
+
+    static int[] iArrFld = new int[N];
+
+    String[] mainTest(String[] strArr1) {
+        vMeth1(iFld);
+        for (int i19 = 2; i19 < 190; i19++) {
+            int i20 = (int) instanceCount;
+            instanceCount += (((i19 * i20) + i20) - fFld);
+        }
+        return strArr1;
+    }
+
+    public static void main(String[] args) throws Exception {
+        new MyJVMTest_14896().mainTest(strArr1);
+    }
+}

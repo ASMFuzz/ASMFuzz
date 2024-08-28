@@ -1,0 +1,14 @@
+public class MyJVMTest_6046 {
+
+    static int i = 3;
+
+    static long f0 = -9223372036854775808L, f1 = 9223372036854775807L;
+
+    Object get(int i) {
+        return new long[] { f0, f1 }[i];
+    }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(new MyJVMTest_6046().get(i));
+    }
+}

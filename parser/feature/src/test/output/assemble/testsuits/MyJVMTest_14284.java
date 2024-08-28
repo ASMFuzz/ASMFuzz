@@ -1,0 +1,18 @@
+import java.lang.instrument.*;
+
+public class MyJVMTest_14284 {
+
+    static String agentArgs = "6}1mrE#/~n";
+
+    static Instrumentation instArg = null;
+
+    Instrumentation premain(String agentArgs, Instrumentation instArg) {
+        System.out.println("Hello from Double-Arg InheritAgent1010Super!");
+        throw new Error("ERROR: THIS AGENT SHOULD NOT HAVE BEEN CALLED.");
+        return instArg;
+    }
+
+    public static void main(String[] args) throws Exception {
+        new MyJVMTest_14284().premain(agentArgs, instArg);
+    }
+}

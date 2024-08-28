@@ -1,0 +1,249 @@
+#
+# Copyright (c) 2016, 2022, Oracle and/or its affiliates. All rights reserved.
+# DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
+#
+# This code is free software; you can redistribute it and/or modify it
+# under the terms of the GNU General Public License version 2 only, as
+# published by the Free Software Foundation.
+#
+# This code is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+# version 2 for more details (a copy is included in the LICENSE file that
+# accompanied this code).
+#
+# You should have received a copy of the GNU General Public License version
+# 2 along with this work; if not, write to the Free Software Foundation,
+# Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
+#
+# Please contact Oracle, 500 Oracle Parkway, Redwood Shores, CA 94065 USA
+# or visit www.oracle.com if you need additional information or have any
+# questions.
+#
+
+#############################################################################
+#
+# List of quarantined tests -- tests that should not be run by default, because
+# they may fail due to known reason. The reason (CR#) must be mandatory specified.
+#
+# List items are testnames followed by labels, all MUST BE commented
+#   as to why they are here and use a label:
+#     generic-all   Problems on all platforms
+#     generic-ARCH  Where ARCH is one of: x64, i586, ppc64, ppc64le, s390x etc.
+#     OSNAME-all    Where OSNAME is one of: linux, windows, macosx, aix
+#     OSNAME-ARCH   Specific on to one OSNAME and ARCH, e.g. macosx-x64
+#     OSNAME-REV    Specific on to one OSNAME and REV, e.g. macosx-10.7.4
+#
+# More than one label is allowed but must be on the same line.
+#
+#############################################################################
+
+
+#############################################################################
+
+# :hotspot_compiler
+
+compiler/ciReplay/TestSAServer.java 8029528 generic-all
+compiler/compilercontrol/jcmd/ClearDirectivesFileStackTest.java 8225370 generic-all
+compiler/jvmci/compilerToVM/GetFlagValueTest.java 8204459 generic-all
+compiler/jvmci/jdk.vm.ci.code.test/src/jdk/vm/ci/code/test/NativeCallTest.java 8262901 macosx-aarch64
+compiler/tiered/LevelTransitionTest.java 8067651 generic-all
+
+compiler/cpuflags/TestAESIntrinsicsOnSupportedConfig.java 8190680 generic-all
+
+compiler/runtime/Test8168712.java 8211769,8211771 generic-ppc64,generic-ppc64le,linux-s390x
+
+compiler/rtm/locking/TestRTMAbortRatio.java 8183263 generic-x64
+compiler/rtm/locking/TestRTMAbortThreshold.java 8183263 generic-x64
+compiler/rtm/locking/TestRTMAfterNonRTMDeopt.java 8183263 generic-x64
+compiler/rtm/locking/TestRTMDeoptOnHighAbortRatio.java 8183263 generic-x64
+compiler/rtm/locking/TestRTMDeoptOnLowAbortRatio.java 8183263 generic-x64
+compiler/rtm/locking/TestRTMLockingCalculationDelay.java 8183263 generic-x64
+compiler/rtm/locking/TestRTMLockingThreshold.java 8183263 generic-x64
+compiler/rtm/locking/TestRTMSpinLoopCount.java 8183263 generic-x64
+compiler/rtm/locking/TestUseRTMDeopt.java 8183263 generic-x64
+compiler/rtm/locking/TestUseRTMXendForLockBusy.java 8183263 generic-x64
+compiler/rtm/print/TestPrintPreciseRTMLockingStatistics.java 8183263 generic-x64
+
+compiler/c2/Test8004741.java 8235801 generic-all
+
+compiler/codecache/jmx/PoolsIndependenceTest.java 8264632 macosx-all
+
+
+#############################################################################
+
+# :hotspot_gc
+
+gc/epsilon/TestMemoryMXBeans.java 8206434 generic-all
+gc/g1/humongousObjects/objectGraphTest/TestObjectGraphAfterGC.java 8156755 generic-all
+gc/g1/logging/TestG1LoggingFailure.java 8169634 generic-all
+gc/g1/humongousObjects/TestHeapCounters.java 8178918 generic-all
+gc/stress/gclocker/TestExcessGCLockerCollections.java 8229120 generic-all
+gc/stress/gclocker/TestGCLockerWithParallel.java 8180622 generic-all
+gc/stress/gclocker/TestGCLockerWithG1.java 8180622 generic-all
+gc/stress/TestJNIBlockFullGC/TestJNIBlockFullGC.java 8192647 generic-all
+gc/metaspace/CompressedClassSpaceSizeInJmapHeap.java 8241293 macosx-x64
+
+#############################################################################
+
+# :hotspot_runtime
+
+runtime/cds/appcds/jigsaw/modulepath/ModulePathAndCP_JFR.java 8253437 windows-x64
+runtime/jni/terminatedThread/TestTerminatedThread.java 8219652 aix-ppc64
+runtime/os/TestTracePageSizes.java#no-options 8267460 linux-aarch64
+runtime/os/TestTracePageSizes.java#explicit-large-page-size 8267460 linux-aarch64
+runtime/os/TestTracePageSizes.java#compiler-options 8267460 linux-aarch64
+runtime/os/TestTracePageSizes.java#G1 8267460 linux-aarch64
+runtime/os/TestTracePageSizes.java#Parallel 8267460 linux-aarch64
+runtime/os/TestTracePageSizes.java#Serial 8267460 linux-aarch64
+runtime/ErrorHandling/CreateCoredumpOnCrash.java 8267433 macosx-x64
+
+applications/jcstress/copy.java 8229852 linux-all
+
+containers/docker/TestJcmd.java 8278102 linux-all
+
+#############################################################################
+
+# :hotspot_serviceability
+
+serviceability/sa/sadebugd/DebugdConnectTest.java 8239062,8270326 macosx-x64,macosx-aarch64
+serviceability/sa/TestRevPtrsForInvokeDynamic.java 8241235 generic-all
+
+serviceability/jvmti/ModuleAwareAgents/ThreadStart/MAAThreadStart.java 8225354 windows-all
+serviceability/dcmd/gc/RunFinalizationTest.java 8227120 linux-all,windows-x64
+
+serviceability/sa/ClhsdbCDSCore.java 8269982,8267433 macosx-aarch64,macosx-x64
+serviceability/sa/ClhsdbFindPC.java#xcomp-core 8269982,8267433 macosx-aarch64,macosx-x64
+serviceability/sa/ClhsdbFindPC.java#no-xcomp-core 8269982,8267433 macosx-aarch64,macosx-x64
+serviceability/sa/ClhsdbPmap.java#core 8269982,8267433 macosx-aarch64,macosx-x64
+serviceability/sa/ClhsdbPstack.java#core 8269982,8267433 macosx-aarch64,macosx-x64
+serviceability/sa/TestJmapCore.java 8269982,8267433 macosx-aarch64,macosx-x64
+serviceability/sa/TestJmapCoreMetaspace.java 8269982,8267433 macosx-aarch64,macosx-x64
+
+#############################################################################
+
+# :hotspot_misc
+
+#############################################################################
+
+
+#############################################################################
+
+# :vmTestbase_*
+
+#############################################################################
+
+vmTestbase/nsk/monitoring/MemoryPoolMBean/isCollectionUsageThresholdExceeded/isexceeded003/TestDescription.java 8153598 generic-all
+vmTestbase/nsk/monitoring/MemoryPoolMBean/isUsageThresholdExceeded/isexceeded001/TestDescription.java 8198668 generic-all
+vmTestbase/nsk/monitoring/MemoryPoolMBean/isUsageThresholdExceeded/isexceeded002/TestDescription.java 8153598 generic-all
+vmTestbase/nsk/monitoring/MemoryPoolMBean/isUsageThresholdExceeded/isexceeded003/TestDescription.java 8198668 generic-all
+vmTestbase/nsk/monitoring/MemoryPoolMBean/isUsageThresholdExceeded/isexceeded004/TestDescription.java 8153598 generic-all
+vmTestbase/nsk/monitoring/MemoryPoolMBean/isUsageThresholdExceeded/isexceeded005/TestDescription.java 8153598 generic-all
+
+vmTestbase/nsk/jdi/HiddenClass/events/events001.java                 8257705 generic-all
+vmTestbase/nsk/jdi/ThreadReference/stop/stop001/TestDescription.java 7034630 generic-all
+
+vmTestbase/metaspace/gc/firstGC_10m/TestDescription.java 8208250 generic-all
+vmTestbase/metaspace/gc/firstGC_50m/TestDescription.java 8208250 generic-all
+vmTestbase/metaspace/gc/firstGC_99m/TestDescription.java 8208250 generic-all
+vmTestbase/metaspace/gc/firstGC_default/TestDescription.java 8208250 generic-all
+
+vmTestbase/nsk/jvmti/AttachOnDemand/attach045/TestDescription.java 8202971 generic-all
+vmTestbase/nsk/jvmti/scenarios/jni_interception/JI05/ji05t001/TestDescription.java 8219652 aix-ppc64
+vmTestbase/nsk/jvmti/scenarios/jni_interception/JI06/ji06t001/TestDescription.java 8219652 aix-ppc64
+vmTestbase/nsk/jvmti/SetJNIFunctionTable/setjniftab001/TestDescription.java 8219652 aix-ppc64
+vmTestbase/nsk/jvmti/AttachOnDemand/attach002a/TestDescription.java 8277812 generic-all
+
+vmTestbase/gc/gctests/WeakReference/weak006/weak006.java 8286737 generic-all
+vmTestbase/gc/lock/jni/jnilock002/TestDescription.java 8192647 generic-all
+
+vmTestbase/jit/escape/LockCoarsening/LockCoarsening001.java 8148743 generic-all
+vmTestbase/jit/escape/LockCoarsening/LockCoarsening002.java 8208259 generic-all
+
+vmTestbase/vm/mlvm/indy/func/jvmti/redefineClassInBootstrap/TestDescription.java 8013267 generic-all
+vmTestbase/vm/mlvm/meth/stress/jdi/breakpointInCompiledCode/Test.java 8257761 generic-all
+vmTestbase/vm/mlvm/indy/func/jvmti/mergeCP_indy2none_a/TestDescription.java 8013267 generic-all
+vmTestbase/vm/mlvm/indy/func/jvmti/mergeCP_indy2manyDiff_b/TestDescription.java 8013267 generic-all
+vmTestbase/vm/mlvm/indy/func/jvmti/mergeCP_indy2manySame_b/TestDescription.java 8013267 generic-all
+
+vmTestbase/nsk/jdwp/ThreadReference/ForceEarlyReturn/forceEarlyReturn001/forceEarlyReturn001.java 7199837 generic-all
+
+# Loom is not implemented on x86_32 yet
+
+compiler/codecache/stress/UnexpectedDeoptimizationAllTest.java                      8286642 generic-i586
+compiler/codecache/stress/UnexpectedDeoptimizationTest.java                         8286642 generic-i586
+runtime/cds/appcds/redefineClass/RedefineRunningMethods_Shared.java                 8286642 generic-i586
+runtime/ClassFile/PreviewVersion.java                                               8286642 generic-i586
+runtime/jni/IsVirtualThread/IsVirtualThread.java                                    8286642 generic-i586
+runtime/vthread/JNIMonitor/JNIMonitor.java                                          8286642 generic-i586
+runtime/vthread/RedefineClass.java                                                  8286642 generic-i586
+runtime/vthread/TestObjectAllocationSampleEvent.java                                8286642 generic-i586
+serviceability/jvmti/events/Breakpoint/breakpoint01/breakpoint01.java               8286642 generic-i586
+serviceability/jvmti/events/ClassLoad/classload01/classload01.java                  8286642 generic-i586
+serviceability/jvmti/events/ClassPrepare/classprep01/classprep01.java               8286642 generic-i586
+serviceability/jvmti/events/Exception/exception01/exception01.java                  8286642 generic-i586
+serviceability/jvmti/events/ExceptionCatch/excatch01/excatch01.java                 8286642 generic-i586
+serviceability/jvmti/events/FieldAccess/fieldacc01/fieldacc01.java                  8286642 generic-i586
+serviceability/jvmti/events/FieldAccess/fieldacc02/fieldacc02.java                  8286642 generic-i586
+serviceability/jvmti/events/FieldAccess/fieldacc03/fieldacc03.java                  8286642 generic-i586
+serviceability/jvmti/events/FieldAccess/fieldacc04/fieldacc04.java                  8286642 generic-i586
+serviceability/jvmti/events/FieldModification/fieldmod01/fieldmod01.java            8286642 generic-i586
+serviceability/jvmti/events/FieldModification/fieldmod02/fieldmod02.java            8286642 generic-i586
+serviceability/jvmti/events/FramePop/framepop01/framepop01.java                     8286642 generic-i586
+serviceability/jvmti/events/FramePop/framepop02/framepop02.java#id0                 8286642 generic-i586
+serviceability/jvmti/events/FramePop/framepop02/framepop02.java#id1                 8286642 generic-i586
+serviceability/jvmti/events/MethodEntry/mentry01/mentry01.java                      8286642 generic-i586
+serviceability/jvmti/events/MethodEntry/mentry02/mentry02.java                      8286642 generic-i586
+serviceability/jvmti/events/MethodExit/mexit01/mexit01.java                         8286642 generic-i586
+serviceability/jvmti/events/MethodExit/mexit02/mexit02.java                         8286642 generic-i586
+serviceability/jvmti/events/MonitorContendedEnter/mcontenter01/mcontenter01.java    8286642 generic-i586
+serviceability/jvmti/events/MonitorContendedEntered/mcontentered01/mcontentered01.java 8286642 generic-i586
+serviceability/jvmti/events/MonitorWait/monitorwait01/monitorwait01.java            8286642 generic-i586
+serviceability/jvmti/events/MonitorWaited/monitorwaited01/monitorwaited01.java      8286642 generic-i586
+serviceability/jvmti/events/SingleStep/singlestep01/singlestep01.java               8286642 generic-i586
+serviceability/jvmti/events/SingleStep/singlestep03/singlestep03.java               8286642 generic-i586
+serviceability/jvmti/GetOwnedMonitorInfo/GetOwnedMonitorInfoTest.java               8286642 generic-i586
+serviceability/jvmti/GetOwnedMonitorStackDepthInfo/GetOwnedMonitorStackDepthInfoTest.java 8286642 generic-i586
+serviceability/jvmti/HeapMonitor/MyPackage/HeapMonitorVMEventsTest.java#id1         8286642 generic-i586
+serviceability/jvmti/RedefineClasses/RedefineRunningMethods.java                    8286642 generic-i586
+serviceability/jvmti/RedefineClasses/RedefineRunningMethodsWithBacktrace.java       8286642 generic-i586
+serviceability/jvmti/stress/StackTrace/NotSuspended/GetStackTraceNotSuspendedStressTest.java 8286642 generic-i586
+serviceability/jvmti/stress/StackTrace/Suspended/GetStackTraceSuspendedStressTest.java 8286642 generic-i586
+serviceability/jvmti/stress/ThreadLocalStorage/SetGetThreadLocalStorageStressTest/SetGetThreadLocalStorageStressTest.java 8286642 generic-i586
+serviceability/jvmti/thread/GetAllThreads/allthr01/allthr01.java                    8286642 generic-i586
+serviceability/jvmti/thread/GetCurrentContendedMonitor/contmon01/contmon01.java     8286642 generic-i586
+serviceability/jvmti/thread/GetCurrentContendedMonitor/contmon02/contmon02.java     8286642 generic-i586
+serviceability/jvmti/thread/GetFrameCount/framecnt01/framecnt01.java                8286642 generic-i586
+serviceability/jvmti/thread/GetStackTrace/GetStackTraceCurrentThreadTest/GetStackTraceCurrentThreadTest.java    8286642 generic-i586
+serviceability/jvmti/thread/GetStackTrace/getstacktr03/getstacktr03.java            8286642 generic-i586
+serviceability/jvmti/thread/GetStackTrace/getstacktr04/getstacktr04.java            8286642 generic-i586
+serviceability/jvmti/thread/GetStackTrace/getstacktr05/getstacktr05.java            8286642 generic-i586
+serviceability/jvmti/thread/GetStackTrace/getstacktr06/getstacktr06.java            8286642 generic-i586
+serviceability/jvmti/thread/GetStackTrace/getstacktr07/getstacktr07.java            8286642 generic-i586
+serviceability/jvmti/thread/GetStackTrace/getstacktr08/getstacktr08.java            8286642 generic-i586
+serviceability/jvmti/thread/GetThreadInfo/thrinfo01/thrinfo01.java                  8286642 generic-i586
+serviceability/jvmti/thread/GetThreadState/thrstat01/thrstat01.java                 8286642 generic-i586
+serviceability/jvmti/thread/GetThreadState/thrstat03/thrstat03.java                 8286642 generic-i586
+serviceability/jvmti/thread/GetThreadState/thrstat05/thrstat05.java                 8286642 generic-i586
+serviceability/jvmti/vthread/BreakpointInYieldTest/BreakpointInYieldTest.java       8286642 generic-i586
+serviceability/jvmti/vthread/ContFramePopTest/ContFramePopTest.java                 8286642 generic-i586
+serviceability/jvmti/vthread/ContStackDepthTest/ContStackDepthTest.java             8286642 generic-i586
+serviceability/jvmti/vthread/ContYieldBreakPointTest/ContYieldBreakPointTest.java   8286642 generic-i586
+serviceability/jvmti/vthread/ContinuationTest/ContinuationTest.java                 8286642 generic-i586
+serviceability/jvmti/vthread/GetSetLocalTest/GetSetLocalTest.java                   8286642 generic-i586
+serviceability/jvmti/vthread/InterruptThreadTest/InterruptThreadTest.java           8286642 generic-i586
+serviceability/jvmti/vthread/MethodExitTest/MethodExitTest.java                     8286642 generic-i586
+serviceability/jvmti/vthread/NullAsCurrentThreadTest/NullAsCurrentThreadTest.java   8286642 generic-i586
+serviceability/jvmti/vthread/PinnedTaskTest/PinnedTaskTest.java                     8286642 generic-i586
+serviceability/jvmti/vthread/RawMonitorTest/RawMonitorTest.java                     8286642 generic-i586
+serviceability/jvmti/vthread/RedefineClasses/RedefineRunningMethods.java            8286642 generic-i586
+serviceability/jvmti/vthread/SelfSuspendDisablerTest/SelfSuspendDisablerTest.java   8286642 generic-i586
+serviceability/jvmti/vthread/SuspendResume1/SuspendResume1.java                     8286642 generic-i586
+serviceability/jvmti/vthread/SuspendResume2/SuspendResume2.java                     8286642 generic-i586
+serviceability/jvmti/vthread/SuspendResumeAll/SuspendResumeAll.java                 8286642 generic-i586
+serviceability/jvmti/vthread/VThreadMonitorTest/VThreadMonitorTest.java             8286642 generic-i586
+serviceability/jvmti/vthread/VThreadNotifyFramePopTest/VThreadNotifyFramePopTest.java 8286642 generic-i586
+serviceability/jvmti/vthread/VThreadTest/VThreadTest.java                           8286642 generic-i586
+serviceability/jvmti/vthread/VThreadUnsupportedTest/VThreadUnsupportedTest.java     8286642 generic-i586
+serviceability/jvmti/vthread/WaitNotifySuspendedVThreadTest/WaitNotifySuspendedVThreadTest.java 8286642 generic-i586
+serviceability/jvmti/vthread/premain/AgentWithVThreadTest.java                      8286642 generic-i586

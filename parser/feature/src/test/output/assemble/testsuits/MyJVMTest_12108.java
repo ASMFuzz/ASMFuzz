@@ -1,0 +1,24 @@
+import java.lang.ref.WeakReference;
+
+public class MyJVMTest_12108 {
+
+    static int i = 0;
+
+    static WeakReference<Object> ref = null;
+
+    static int val = 0;
+
+    Object foo(int i) {
+        Object o = new Object();
+        ref = new WeakReference<Object>(o);
+        if (val == 200) {
+            if (o instanceof UncommonTrapLeak) {
+            }
+        }
+        return o;
+    }
+
+    public static void main(String[] args) throws Exception {
+        new MyJVMTest_12108().foo(i);
+    }
+}

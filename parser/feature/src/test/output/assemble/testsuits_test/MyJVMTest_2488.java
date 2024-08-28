@@ -1,0 +1,43 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class MyJVMTest_2488 {
+
+    static Object pickParam1 = 2036873922;
+
+    static ChangeEvent pick = new ChangeEvent(pickParam1);
+
+    static JTabbedPane tabbedPane = null;
+
+    static boolean bStateChanged = false;
+
+    static JFrame frame = null;
+
+    void createAndShowUI() {
+        frame = new JFrame();
+        tabbedPane = new JTabbedPane();
+        tabbedPane.add("Tab0", new JPanel());
+        tabbedPane.add("Tab1", new JPanel());
+        tabbedPane.add("Tab2", new JPanel());
+        tabbedPane.setSelectedIndex(2);
+        tabbedPane.addChangeListener(new ChangeListener() {
+
+            public ChangeEvent stateChanged(final ChangeEvent pick) {
+                bStateChanged = true;
+                if (tabbedPane.getTabCount() == 3) {
+                    tabbedPane.remove(2);
+                }
+                return pick;
+            }
+        });
+        frame.getContentPane().add(tabbedPane);
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) throws Exception {
+        new MyJVMTest_2488().stateChanged(pick);
+    }
+}
